@@ -15,11 +15,19 @@ namespace DVDLogo
 
             BouncingLogo.BackColor = Color.FromArgb(Rand.Next(0, 256), Rand.Next(0, 256), Rand.Next(0, 256));
             BouncingLogo.Location = new Point( // randomise location between first and third quarter of the client dimensions
-                Rand.Next((int)Math.Round(ClientSize.Width * 0.25), (int)Math.Round(ClientSize.Width * 0.75)), 
+                Rand.Next((int)Math.Round(ClientSize.Width * 0.25), (int)Math.Round(ClientSize.Width * 0.75)),
                 Rand.Next((int)Math.Round(ClientSize.Height * 0.25), (int)Math.Round(ClientSize.Height * 0.75))
             );
 
             LogoTimer.Start();
+        }
+
+        private void DVDForm_Resize(object sender, EventArgs e)
+        {
+            BouncingLogo.Location = new Point( // re-randomize position of picturebox to fit within the client
+                Rand.Next((int)Math.Round(ClientSize.Width * 0.25), (int)Math.Round(ClientSize.Width * 0.75)),
+                Rand.Next((int)Math.Round(ClientSize.Height * 0.25), (int)Math.Round(ClientSize.Height * 0.75))
+            );
         }
 
         private void LogoTimer_Tick(object sender, EventArgs e)

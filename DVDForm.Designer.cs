@@ -49,15 +49,16 @@
             LogoTimer.Interval = 20;
             LogoTimer.Tick += LogoTimer_Tick;
             // 
-            // Form1
+            // DVDForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
             ClientSize = new Size(800, 450);
             Controls.Add(BouncingLogo);
-            Name = "Form1";
+            Name = "DVDForm";
             Text = "Form1";
+            ResizeEnd += DVDForm_Resize;
             ((System.ComponentModel.ISupportInitialize)BouncingLogo).EndInit();
             ResumeLayout(false);
         }
